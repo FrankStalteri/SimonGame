@@ -73,10 +73,10 @@ function checkAnswer(currentLevel) {
 
         $("#level-title").text("Game Over, Press Any Key to Restart");
 
-        if (document.addEventListener("keypress", function () {
+        /*if (document.addEventListener("keypress", function () {
             setTimeout(function () {
             }, 100);
-        })) {}
+        })) {}*/
 
         startOver();
     }
