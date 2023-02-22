@@ -11,6 +11,9 @@ var started = false;
 // Computer picks a square
 function nextSequence() {
 
+    level++;
+    $("#level-title").text("Level " + level);
+
     // Everytime nextSequence() is called remove the previous array of choices to restart the comparison in checkAnswer()
     userClickedPattern = [];
 
@@ -32,9 +35,6 @@ function nextSequence() {
 
     playSound(randomChosenColor);
 
-    level++;
-    $("#level-title").text("Level " + level);
-
 }
     // Step 5 Code
 function playSound(name) {
@@ -55,9 +55,7 @@ function checkAnswer(currentLevel) {
 
     // if correct choice
     if (gamePattern[currentLevel] === userClickedPattern[currentLevel]) {
-        console.log("Success");
-
-        if (userClickedPattern.length == gamePattern.length) {
+        if (userClickedPattern.length === gamePattern.length) {
             setTimeout(function () {
                 nextSequence();
             }, 1000);
@@ -65,7 +63,6 @@ function checkAnswer(currentLevel) {
     }
     // if wrong choice
     else {
-        console.log("Wrong");
 
         playSound("wrong");
 
@@ -78,9 +75,10 @@ function checkAnswer(currentLevel) {
 
         if (document.addEventListener("keypress", function () {
             setTimeout(function () {
-                startOver();
             }, 100);
         })) {}
+
+        startOver();
     }
 }
 
